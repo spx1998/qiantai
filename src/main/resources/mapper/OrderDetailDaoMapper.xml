@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiantai.menu.dao.OrderDetailDao">
+
+    <insert id="addDetails" parameterType="java.util.List" useGeneratedKeys="false">
+        insert into order_detail(order_id, dish_id, price) VALUES <foreach collection="list" item="item" index="index" separator=",">
+        (#{item.orderID},#{item.dishID},#{item.price})
+    </foreach>
+    </insert>
+</mapper>
